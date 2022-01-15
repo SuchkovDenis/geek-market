@@ -1,6 +1,7 @@
 package ru.gb.springbootdemoapp.service;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import ru.gb.springbootdemoapp.model.Product;
 import ru.gb.springbootdemoapp.repository.ProductRepository;
@@ -21,8 +22,8 @@ public class ProductService {
     productRepository.save(product);
   }
 
-  public Product findById(Long id) {
-    return productRepository.findById(id).orElse(null);
+  public Optional<Product> findById(Long id) {
+    return productRepository.findById(id);
   }
 
   public void deleteById(Long id) {
