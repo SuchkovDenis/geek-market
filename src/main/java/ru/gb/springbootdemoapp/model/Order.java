@@ -25,7 +25,7 @@ public class Order {
   private Long id;
 
   @Column(name = "price")
-  private Float price;
+  private Double price;
 
   @ManyToOne
   @JoinColumn(name = "customer_id")
