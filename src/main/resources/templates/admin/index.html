@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:with="currentPage='Админ панель'">
 <head th:include="fragments/common-head">
-    <title>Админ панель</title>
 </head>
 <body>
 <nav th:replace="fragments/nav-bar::nav-bar">
@@ -27,9 +26,11 @@
             <td th:text="${product.category}">Техника</td>
             <td th:text="${product.price}">999</td>
             <td><a th:href="@{${'/info/' + product.id}}">Подробнее</a></td>
-            <td><form method="post" th:action="@{${'/admin/delete/' + product.id}}">
-                <button type="submit" class="btn btn-danger">x</button>
-            </form></td>
+            <td>
+                <form method="post" th:action="@{${'/admin/delete/' + product.id}}">
+                    <button type="submit" class="btn btn-danger">x</button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
