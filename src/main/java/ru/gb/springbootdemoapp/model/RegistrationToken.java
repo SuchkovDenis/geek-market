@@ -30,11 +30,11 @@ public class RegistrationToken {
 
   @ManyToOne
   @JoinColumn(name = "user_id")
-  private User user;
+  private AppUser appUser;
 
-  public RegistrationToken(String token, LocalDateTime expiredAt, User user) {
+  public RegistrationToken(String token, LocalDateTime expiredAt, AppUser appUser) {
     this.token = token;
     this.expiredAt = expiredAt;
-    this.user = user;
+    this.appUser = appUser;
   }
 }

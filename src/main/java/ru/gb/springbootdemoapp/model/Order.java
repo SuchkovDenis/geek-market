@@ -29,7 +29,7 @@ public class Order {
 
   @ManyToOne
   @JoinColumn(name = "customer_id")
-  private User customer;
+  private AppUser customer;
 
   @Column(name = "contact_email")
   private String contactEmail;
