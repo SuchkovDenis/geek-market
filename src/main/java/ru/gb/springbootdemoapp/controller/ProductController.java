@@ -26,7 +26,7 @@ public class ProductController {
     List<ProductDto> students =  productService.getAll().stream()
         .map(productMapper::productToProductDto).collect(Collectors.toList());
     model.addAttribute("products", students);
-    return "product_list";
+    return "home";
   }
 
   @GetMapping("/info/{id}")
