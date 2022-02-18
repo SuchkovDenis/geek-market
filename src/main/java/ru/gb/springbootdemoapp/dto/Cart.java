@@ -3,11 +3,21 @@ package ru.gb.springbootdemoapp.dto;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
+import org.springframework.data.redis.core.RedisHash;
 
 @Data
+@RedisHash(value = "Cart", timeToLive = 200)
 public class Cart {
+  private String id;
   private List<CartItem> items = new ArrayList<>();
   private double price;
+
+  public Cart() {
+  }
+
+  public Cart(String id) {
+    this.id = id;
+  }
 
   public void addItem(CartItem cartItem) {
     items.stream().filter(items -> items.getProductId().equals(cartItem.getProductId())).findFirst()
